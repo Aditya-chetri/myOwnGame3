@@ -105,7 +105,7 @@ function draw() {
  
   
   if((keyDown("space"))&&(gameState==="normal")){
-    player.y = player.y-10;
+    player.y = player.y-18;
   }
   player.velocityY = player.velocityY + 0.5;
 
@@ -125,7 +125,7 @@ function draw() {
     player.velocityY = 0;
   }*/
   if(gameState=="walking"){
-    player.changeAnimation("running",player_running);
+    player.changeAnimation("running",player_running); 
   }
   
 ////////////////////////////////////////////////////////
@@ -176,6 +176,8 @@ function draw() {
     topArrow.visible = false;
     leftArrow.visible = false;
     rightArrow.visible = false;
+    over.visible = true;
+    again.visible = true;
   }
   
   if(gameState===normal){
@@ -187,7 +189,21 @@ function draw() {
     leftArrow.visible = true;
     rightArrow.visible = true;
   }
-  
+
+  if(mousePressedOver(again)){
+    gameState = "normal";
+    player.x = 100;
+    player.y = 525;
+  }
+
+  if(gameState === "normal"){
+    lose.visible = false;
+    again.visible = false;
+    topArrow.visible = true;
+    leftArrow.visible = true;
+    rightArrow.visible = true;
+  }
+ 
   
   
 
