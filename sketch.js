@@ -133,7 +133,7 @@ function draw() {
 
 
   if((mousePressedOver(topArrow))&&(gameState==="normal")){
-    player.y = player.y-10;
+    player.y = player.y-18;
   }
   player.velocityY = player.velocityY + 0.5;
 
@@ -160,6 +160,9 @@ function draw() {
   
 
   if((keyDown("space"))&&(player.collide(mushroom))){
+    player.y = player.y-100;
+  }
+  if((mousePressedOver(topArrow))&&(player.collide(mushroom))){
     player.y = player.y-100;
   }
   if((player.collide(outGround))||(player.collide(ob1))){
